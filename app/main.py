@@ -8,8 +8,8 @@ def copy_file(command: str) -> None:
     source_file_name = command_parts[1]
     destination_file_name = command_parts[2]
 
-    # Do nothing if source and destination filenames are the same
-    if source_file_name == destination_file_name:
+    # Case-insensitive comparison for safety on all file systems
+    if source_file_name.lower() == destination_file_name.lower():
         return
 
     try:
